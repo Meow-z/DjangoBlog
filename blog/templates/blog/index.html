@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+{% comment %}
+    {{ 变量 }}
+    {% 标签 %}
+    {{ Django|过滤器 }}
+    {# 这将不会被渲染 #}
+    {# comment #}
+    多行注释
+    多行注释
+    {# endcomment #}
+{% endcomment %}
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {# 硬编码的 href="/polls/{{ question.id }} #}
+        {# 在 polls.urls 的 urls() 函数中通过 name 参数为 URL 定义了名字 #}
+        {# blog 是 namespace #}
+        <li><a href="{% url 'blog:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
