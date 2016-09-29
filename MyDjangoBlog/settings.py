@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 """
 Django settings for MyDjangoBlog project.
 
@@ -56,7 +58,9 @@ ROOT_URLCONF = 'MyDjangoBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 定义搜索模板的顺序列表
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 是否寻找安装在应用程序内的模板
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
